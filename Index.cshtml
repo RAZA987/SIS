@@ -1,0 +1,30 @@
+   @model IEnumerable<YourNamespace.Models.Book>
+
+   <h2>Books</h2>
+
+   <table class="table">
+       <thead>
+           <tr>
+               <th>Bookno</th>
+               <th>Bookname</th>
+               <th>Authorname</th>
+               <th>Price</th>
+               <th></th>
+           </tr>
+       </thead>
+       <tbody>
+       @foreach (var item in Model) {
+           <tr>
+               <td>@item.Bookno</td>
+               <td>@item.Bookname</td>
+               <td>@item.Authorname</td>
+               <td>@item.Price</td>
+               <td>
+                   @Html.ActionLink("Edit", "Edit", new { id=item.Bookno }) |
+                   @Html.ActionLink("Details", "Details", new { id=item.Bookno }) |
+                   @Html.ActionLink("Delete", "Delete", new { id=item.Bookno })
+               </td>
+           </tr>
+       }
+       </tbody>
+   </table>
